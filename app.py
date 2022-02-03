@@ -13,10 +13,10 @@ app.config['SECRET_KEY'] = 'shh12212'
 toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
-db.create_all()
+# db.create_all()
 
 @app.route('/') 
-def list():
+def root():
     """redirects to list of users"""
 
     return redirect("/users")
@@ -26,7 +26,8 @@ def users_index():
     """index of the users info"""
 
     users = User.query.order_by(User.first_name, User.last_name).all()
-    return render_template('/users/index.html', users=users)
+
+    return render_template('users/index.html', users=users)
 
 @app.route('/users/new', methods=['GET'])
 def users_new_form():
