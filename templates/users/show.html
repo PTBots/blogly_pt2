@@ -2,9 +2,8 @@
     {% block title %}
         {{user.full_name}}
     {% endblock %}
-{% endblock %}
 
-{% block content %}
+{% block body %}
 
 <div class="row">
 
@@ -19,13 +18,11 @@
     <div class="col-sm-5 col-10">
         <h1>{{ user.full_name }}</h1>
 
-        <form>
-            <button class="btn btn-primary btn-sm"
-                    formation="/users/{{user.id}}/delete"
-                    formmethod="POST">Delete
+        <form action="/users/{{user.id}}/delete" method="POST">
+            <button class="btn btn-primary btn-sm">DELETE</button>
             </button>
         </form>
     </div>
 </div>
 
-{% endblock %}
+{% end block %}
